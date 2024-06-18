@@ -1,0 +1,139 @@
+@import 'variables';
+
+
+.footer-section {
+    background-color: $secondary-background;
+    color: $secondary-text-color;
+    padding: 20px 0;
+    
+    .footer-top {
+        border-bottom: 1px solid $secondary-text-color;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+
+        .footer-nav {
+            text-align: center;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                flex-wrap: wrap;
+
+                li {
+                    a {
+                        color: $secondary-text-color;
+                        text-decoration: none;
+                        transition: color 0.3s;
+
+                        &:hover {
+                            color: lighten($secondary-text-color, 20%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-middle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: center;
+        padding: 20px 0;
+
+        .address,
+        .contact,
+        .safe-shopping,
+        .payment-methods {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .address address {
+            font-style: normal;
+            color: $secondary-text-color;
+        }
+
+        .contact a {
+            color: $secondary-text-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .safe-shopping {
+            .ssl-certified {
+                background-color: $accent-color;
+                color: $secondary-text-color;
+                padding: 5px 10px;
+                border-radius: 5px;
+                display: inline-block;
+
+                a {
+                    color: $secondary-text-color;
+                    text-decoration: none;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: darken($accent-color, 10%);
+                    }
+                }
+            }
+        }
+
+        .payment-methods img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .footer-bottom {
+        text-align: center;
+        border-top: 1px solid $secondary-text-color;
+        padding-top: 20px;
+        margin-top: 20px;
+
+        .footer-logo {
+            margin-bottom: 10px;
+
+            img {
+                max-width: 100px;
+                height: auto;
+            }
+        }
+
+        p {
+            margin: 0;
+
+            a {
+                color: $secondary-text-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-middle {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .address,
+        .contact,
+        .safe-shopping,
+        .payment-methods {
+            text-align: center;
+        }
+    }
+}

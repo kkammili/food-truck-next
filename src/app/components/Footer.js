@@ -1,0 +1,59 @@
+import React from 'react';
+import '../styles/_footer.scss';
+
+const Footer = () => {
+  return (
+    <div id="contact" className="footer-section">
+        <div className="container">
+            <div className="footer-top">
+                <nav className="footer-nav">
+                    <ul>
+                        <li><a href="#">Bhimavaram Biryani's - Food Truck</a></li>
+                        <li><a href="#">Menu</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Subscribe</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div className="footer-middle">
+                <div className="address">
+                    <p>Our Address:</p>
+                    <div>
+                        1227 Lake Falls Terr<br />
+                        Carrollton<br />
+                        TEXAS<br />
+                        US
+                    </div>
+                </div>
+                <div className="contact">
+                    <p>Telephone: <a href="tel:4695696257">4695696257</a></p>
+                    <p>Email: <a href="mailto:kkrajus@gmail.com">kkrajus777@gmail.com</a></p>
+                </div>
+                <div className="safe-shopping">
+                    <p>Safe Shopping</p>
+                    <div className="ssl-certified">
+                        <a href="#">SSL CERTIFIED</a>
+                    </div>
+                </div>
+                <div className="payment-methods">
+                    <p>We Accept</p>
+                    <img src="images/payment-methods.png" alt="Payment Methods" />
+                </div>
+            </div>
+            <div className="footer-bottom">
+                <div className="footer-logo">
+                    <img src="images/logos.png" alt="Swadeshi Plaza" />
+                </div>
+                <p>&copy; Mana Bhimavaram Biryani's</p>
+            </div>
+        </div>
+    </div>
+    
+  );
+};
+
+export default Footer;
