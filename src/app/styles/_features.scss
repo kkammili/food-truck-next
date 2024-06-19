@@ -11,6 +11,7 @@
 
 .features-text {
     max-width: 60%;
+    padding: 20px;
 }
 
 .features-text h2 {
@@ -30,15 +31,16 @@
 }
 
 .features-image {
-    max-width: 35%;
     background-color: $primary-background;
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    // height: 100vh; /* Full viewport height */
 }
 
-.features-image img {
-    max-width: 100%;
+.features-image .img {
+    width: 100%;
     height: auto;
 }
 

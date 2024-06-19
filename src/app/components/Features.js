@@ -1,11 +1,19 @@
 import * as React from 'react';
 import '../styles/_features.scss'
+import Image from 'next/image'
 
 export const Features = () => {
   return (
     <section className="features">
     <div className="features-image">
-        <img src="./images/fast-delivery.png" alt="Faster delivery" />
+        <Image
+            src="/images/fast-delivery.png"
+            alt="Faster delivery"
+            layout="responsive" 
+            width={100}
+            height={100}
+            className={"img"}
+        />
     </div>
     <div className="features-text">
         <div className="feature">
