@@ -1,12 +1,14 @@
 import * as React from "react";
+import Image from "next/image";
 
 const MenuItem = ({url, title, desc, price}) => {
   return (
     <div className="menu-item">
-      <img
+      <Image
         src={url}
-        className="img-fluid"
         alt={title}
+        width={200}
+        height={200}
       />
       <h3 className="menu-item-title">{title}</h3>
       <p className="menu-item-desc">{desc}</p>

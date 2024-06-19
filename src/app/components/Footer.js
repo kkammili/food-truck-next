@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/_footer.scss';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -41,12 +42,23 @@ const Footer = () => {
                 </div>
                 <div className="payment-methods">
                     <p>We Accept</p>
-                    <img src="images/payment-methods.png" alt="Payment Methods" />
+                    <Image
+                        src={'/images/payment-methods.png'}
+                        alt={'Payment Methods'}
+                        width={175}
+                        height={40}
+                    />
                 </div>
             </div>
             <div className="footer-bottom">
                 <div className="footer-logo">
-                    <img src="images/logos.png" alt="Swadeshi Plaza" />
+                    <Image
+                        src={'/images/logos.png'}
+                        alt={'bvrm biryanis logo'}
+                        className={'footer-logo'}
+                        width={150}
+                        height={80}
+                    />
                 </div>
                 <p>&copy; Mana Bhimavaram Biryani's</p>
             </div>

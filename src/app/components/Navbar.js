@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import '../styles/_navbar.scss';
+import Image from "next/image";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,13 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg custom-navbar">
     <div className="container-fluid">
         <a className="navbar-brand" href="#">
-            <img className="logo" src="./images/logos.png" alt="Bhimavaram Biryani's" />
+            <Image
+                 src="/images/logos.png"
+                 width={150}
+                 height={80}
+                 className="logo"
+                 alt="Bhimavaram Biryani's"         
+            />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"
