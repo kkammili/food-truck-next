@@ -9,10 +9,10 @@ const Footer = () => {
             <div className="footer-top">
                 <nav className="footer-nav">
                     <ul>
-                        <li><a href="#">Bhimavaram Biryani's - Food Truck</a></li>
+                        <li><a href="#">Bhimavaram Biryani&apos;s - Food Truck</a></li>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Reviews</a></li>
-                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">FAQ&apos;s</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Subscribe</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
@@ -60,7 +60,7 @@ const Footer = () => {
                         height={80}
                     />
                 </div>
-                <p>&copy; Mana Bhimavaram Biryani's</p>
+                <p>&copy; Mana Bhimavaram Biryani&apos;s</p>
             </div>
         </div>
     </div>

@@ -24,7 +24,7 @@ export const Features = () => {
         </div>
         <div className="feature">
             <h2>Quick Delivery Service</h2>
-            <p>We understand that you want your food delivered fast. That's why we have a dedicated team of delivery
+            <p>We understand that you want your food delivered fast. That&apos;s why we have a dedicated team of delivery
                 drivers who strive to bring your favorite South Indian dishes to your doorstep in the shortest
                 possible time.</p>
         </div>
