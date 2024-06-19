@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/_hero.scss';
+import Image from 'next/image';
 
 const Hero = () => {
   return (
@@ -13,7 +14,14 @@ const Hero = () => {
         </div>
     </div>
     <div className="hero-image">
-        <img src="./images/chef.gif" alt="Cook Image" className="cook-image" />
+      <Image
+        src="/images/chef.gif"
+        alt="Cook Image"
+        width={100}
+        height={100}
+        className="cook-image"
+      />
+        {/* <img src="./images/chef.gif" alt="Cook Image" className="cook-image" /> */}
     </div>
 </section>
 
