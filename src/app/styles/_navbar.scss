@@ -18,7 +18,7 @@
     }
 
     .nav-link:hover {
-        color: lighten($secondary-text-color, 20%);
+        color: $button-hover;
     }
 
     .order-link {
