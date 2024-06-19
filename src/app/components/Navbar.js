@@ -1,7 +1,10 @@
-import React from 'react';
+"use client";
+import React, { useState } from "react";
 import '../styles/_navbar.scss';
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
     <div className="container-fluid">
@@ -9,10 +12,12 @@ const Navbar = () => {
             <img className="logo" src="./images/logos.png" alt="Bhimavaram Biryani's" />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"
+            onClick={() => setIsOpen(!isOpen)}
+            >
             <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarContent">
+        <div className={isOpen?"show navbar-collapse":"collapse navbar-collapse"} id="navbarContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item mx-3">
                     <a className="nav-link" href="#contact">About Us</a>

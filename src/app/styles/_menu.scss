@@ -21,7 +21,7 @@
 
 .menu-items {
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 20px 0;
     scroll-behavior: smooth;
 }
@@ -100,8 +100,27 @@
     background-color: $button-hover;
 }
 
+.menu-item-desc {
+    width: 200px;
+    height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-item-title {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media (max-width: 768px) {
+    .menu-items {
+        -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+    }
+
     .menu-item {
         margin-bottom: 20px;
+        -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
     }
 }
