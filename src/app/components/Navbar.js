@@ -15,8 +15,9 @@ const Navbar = () => {
                  width={150}
                  height={80}
                  className="logo"
-                 alt="Bhimavaram Biryani's"         
-            />
+                 alt="Bhimavaram Biryani's"
+                 priority={true} 
+                />
         </a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
             aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"
