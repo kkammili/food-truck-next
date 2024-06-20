@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import * as React from "react";
 import "../styles/_menu.scss";
 import MenuItem from "./MenuItem";
+import { ChevronRight, ChevronLeft } from 'react-bootstrap-icons';
 
 const menuSection = [
   {
@@ -39,95 +40,95 @@ const menuSection = [
         price: "$13.99",
       },
       {
-        "url": "/images/rice-items/bisi-bele-bath.png",
-        "title": "Bisi Bele Bath",
-        "desc": "A spicy, flavorful rice dish cooked with lentils, vegetables, tamarind, and a special blend of spices.",
-        "price": "$10.99"
-    },
-    {
-        "url": "/images/rice-items/lemon-rice.png",
-        "title": "Lemon Rice (Chitranna)",
-        "desc": "Rice flavored with lemon juice, turmeric, and garnished with peanuts, curry leaves, and mustard seeds.",
-        "price": "$8.99"
-    },
-    {
-        "url": "/images/rice-items/curd-rice.png",
-        "title": "Curd Rice (Thayir Sadam)",
-        "desc": "Rice mixed with yogurt and seasoned with mustard seeds, curry leaves, and sometimes garnished with pomegranate seeds or grapes.",
-        "price": "$7.99"
-    },
-    {
-        "url": "/images/rice-items/tamarind-rice.png",
-        "title": "Tamarind Rice (Puliyodarai)",
-        "desc": "Rice cooked with tamarind paste, peanuts, and a blend of spices, often served as prasadam in temples.",
-        "price": "$9.99"
-    },
-    {
-        "url": "/images/rice-items/coconut-rice.png",
-        "title": "Coconut Rice",
-        "desc": "Rice flavored with grated coconut, curry leaves, mustard seeds, and sometimes cashews.",
-        "price": "$8.99"
-    },
-    {
-        "url": "/images/rice-items/hyderabadi-biryani.png",
-        "title": "Hyderabadi Biryani",
-        "desc": "A famous layered biryani with basmati rice, marinated meat (chicken or mutton), and aromatic spices.",
-        "price": "$14.99"
-    },
-    {
-        "url": "/images/rice-items/vegetable-biryani.png",
-        "title": "Vegetable Biryani",
-        "desc": "A fragrant rice dish with mixed vegetables, aromatic spices, and herbs.",
-        "price": "$11.99"
-    },
-    {
-        "url": "/images/rice-items/paneer-biryani.png",
-        "title": "Paneer Biryani",
-        "desc": "A flavorful biryani with marinated paneer cubes and basmati rice.",
-        "price": "$12.99"
-    },
-    {
-        "url": "/images/rice-items/jeera-rice.png",
-        "title": "Jeera Rice",
-        "desc": "Rice flavored with cumin seeds and sometimes garnished with fried onions.",
-        "price": "$7.99"
-    },
-    {
-        "url": "/images/rice-items/vangi-bath.png",
-        "title": "Vangi Bath",
-        "desc": "Rice cooked with eggplant (brinjal) and a special spice blend.",
-        "price": "$10.99"
-    },
-    {
-        "url": "/images/rice-items/biryani-bath.png",
-        "title": "Biryani Bath",
-        "desc": "A simplified version of biryani with a mix of vegetables and spices, often cooked as a one-pot dish.",
-        "price": "$10.99"
-    },
-    {
-        "url": "/images/rice-items/pudina-rice.png",
-        "title": "Pudina Rice",
-        "desc": "Rice flavored with mint leaves, green chilies, and spices.",
-        "price": "$9.99"
-    },
-    {
-        "url": "/images/rice-items/kovakkai-rice.png",
-        "title": "Kovakkai Rice (Tindora Rice)",
-        "desc": "Rice cooked with ivy gourd (tindora), spices, and garnished with coriander leaves.",
-        "price": "$9.99"
-    },
-    {
-        "url": "/images/rice-items/sakkarai-pongal.png",
-        "title": "Sakkarai Pongal",
-        "desc": "A sweet rice dish made with jaggery, ghee, and flavored with cardamom, often garnished with cashews and raisins.",
-        "price": "$8.99"
-    },
-    {
-        "url": "/images/rice-items/sweet-coconut-rice.png",
-        "title": "Sweet Coconut Rice",
-        "desc": "Rice cooked with jaggery, grated coconut, and flavored with cardamom.",
-        "price": "$8.99"
-    }
+        url: "/images/rice-items/bisi-bele-bath.png",
+        title: "Bisi Bele Bath",
+        desc: "A spicy, flavorful rice dish cooked with lentils, vegetables, tamarind, and a special blend of spices.",
+        price: "$10.99",
+      },
+      {
+        url: "/images/rice-items/lemon-rice.png",
+        title: "Lemon Rice (Chitranna)",
+        desc: "Rice flavored with lemon juice, turmeric, and garnished with peanuts, curry leaves, and mustard seeds.",
+        price: "$8.99",
+      },
+      {
+        url: "/images/rice-items/curd-rice.png",
+        title: "Curd Rice (Thayir Sadam)",
+        desc: "Rice mixed with yogurt and seasoned with mustard seeds, curry leaves, and sometimes garnished with pomegranate seeds or grapes.",
+        price: "$7.99",
+      },
+      {
+        url: "/images/rice-items/tamarind-rice.png",
+        title: "Tamarind Rice (Puliyodarai)",
+        desc: "Rice cooked with tamarind paste, peanuts, and a blend of spices, often served as prasadam in temples.",
+        price: "$9.99",
+      },
+      {
+        url: "/images/rice-items/coconut-rice.png",
+        title: "Coconut Rice",
+        desc: "Rice flavored with grated coconut, curry leaves, mustard seeds, and sometimes cashews.",
+        price: "$8.99",
+      },
+      {
+        url: "/images/rice-items/hyderabadi-biryani.png",
+        title: "Hyderabadi Biryani",
+        desc: "A famous layered biryani with basmati rice, marinated meat (chicken or mutton), and aromatic spices.",
+        price: "$14.99",
+      },
+      {
+        url: "/images/rice-items/vegetable-biryani.png",
+        title: "Vegetable Biryani",
+        desc: "A fragrant rice dish with mixed vegetables, aromatic spices, and herbs.",
+        price: "$11.99",
+      },
+      {
+        url: "/images/rice-items/paneer-biryani.png",
+        title: "Paneer Biryani",
+        desc: "A flavorful biryani with marinated paneer cubes and basmati rice.",
+        price: "$12.99",
+      },
+      {
+        url: "/images/rice-items/jeera-rice.png",
+        title: "Jeera Rice",
+        desc: "Rice flavored with cumin seeds and sometimes garnished with fried onions.",
+        price: "$7.99",
+      },
+      {
+        url: "/images/rice-items/vangi-bath.png",
+        title: "Vangi Bath",
+        desc: "Rice cooked with eggplant (brinjal) and a special spice blend.",
+        price: "$10.99",
+      },
+      {
+        url: "/images/rice-items/biryani-bath.png",
+        title: "Biryani Bath",
+        desc: "A simplified version of biryani with a mix of vegetables and spices, often cooked as a one-pot dish.",
+        price: "$10.99",
+      },
+      {
+        url: "/images/rice-items/pudina-rice.png",
+        title: "Pudina Rice",
+        desc: "Rice flavored with mint leaves, green chilies, and spices.",
+        price: "$9.99",
+      },
+      {
+        url: "/images/rice-items/kovakkai-rice.png",
+        title: "Kovakkai Rice (Tindora Rice)",
+        desc: "Rice cooked with ivy gourd (tindora), spices, and garnished with coriander leaves.",
+        price: "$9.99",
+      },
+      {
+        url: "/images/rice-items/sakkarai-pongal.png",
+        title: "Sakkarai Pongal",
+        desc: "A sweet rice dish made with jaggery, ghee, and flavored with cardamom, often garnished with cashews and raisins.",
+        price: "$8.99",
+      },
+      {
+        url: "/images/rice-items/sweet-coconut-rice.png",
+        title: "Sweet Coconut Rice",
+        desc: "Rice cooked with jaggery, grated coconut, and flavored with cardamom.",
+        price: "$8.99",
+      },
     ],
   },
   {
@@ -258,27 +259,30 @@ const menuSection = [
 ];
 
 const Menu = () => {
-    const scrollRight = (id) => {
-        const sect = document.getElementById(id);
-        if (sect) {
-          sect.scrollBy({ left: 150, behavior: 'smooth' });
-        }
-      };
-    
-      const scrollLeft = (id) => {
-        const sect = document.getElementById(id);
-        if (sect) {
-          sect.scrollBy({ left: -150, behavior: 'smooth' });
-        }
-      };
+  const scrollRight = (id) => {
+    const sect = document.getElementById(id);
+    if (sect) {
+      sect.scrollBy({ left: 150, behavior: "smooth" });
+    }
+  };
+
+  const scrollLeft = (id) => {
+    const sect = document.getElementById(id);
+    if (sect) {
+      sect.scrollBy({ left: -150, behavior: "smooth" });
+    }
+  };
   return (
     <>
       {menuSection.map((section) => {
         return (
           <section key={section.heading} className="menu-section">
             <h2>{section.heading}</h2>
-            <div className="menu-items-wrapper">            
-              <div id={section.heading.toLowerCase().replace(/ /g, '-')} className="menu-items">
+            <div className="menu-items-wrapper">
+              <div
+                id={section.heading.toLowerCase().replace(/ /g, "-")}
+                className="menu-items"
+              >
                 {section.menuItems.map((menuItem) => {
                   return (
                     <MenuItem
@@ -291,18 +295,22 @@ const Menu = () => {
                   );
                 })}
               </div>
-             
-              <button className="scroll-button left" 
-              onClick={() => scrollLeft(section.heading.toLowerCase().replace(/ /g, '-'))}
-              >
-                &#8249;
-              </button>
 
-              <button id={section.heading} className="scroll-button right" 
-              onClick={() => scrollRight(section.heading.toLowerCase().replace(/ /g, '-'))}
-              >
-                &#8250;
-            </button>
+              <ChevronLeft
+                className={"scroll-button left"}
+                size={30}
+                onClick={() =>
+                  scrollLeft(section.heading.toLowerCase().replace(/ /g, "-"))
+                }
+              />
+
+              <ChevronRight
+                className={"scroll-button right"}
+                size={30}
+                onClick={() =>
+                  scrollRight(section.heading.toLowerCase().replace(/ /g, "-"))
+                }
+              />
             </div>
           </section>
         );
