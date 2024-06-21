@@ -1,5 +1,31 @@
 @import 'variables';
 
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: $secondary-background;
+    color: $primary-background;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    margin: 0;
+    flex: 0 0 auto; /* Ensure tabs are inline and don't shrink */
+}
+
+.tab:hover, .activeTab {
+    background-color: $button-hover;
+}
+
 .menu-section {
     text-align: center;
     padding: 50px 20px;
@@ -120,5 +146,9 @@
     .menu-item {
         margin-bottom: 20px;
         -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
+    }
+
+    .tabs {
+        -webkit-overflow-scrolling: touch; /* Enables momentum scrolling */
     }
 }

@@ -1,11 +1,12 @@
 "use client";
 
-import * as React from "react";
+import React, {useState} from "react";
 import "../styles/_menu.scss";
 import MenuItem from "./MenuItem";
 import { ChevronRight, ChevronLeft } from 'react-bootstrap-icons';
 
-const menuSection = [
+const menuSections = [
+  {heading:"Specials", menuItems:[]},
   {
     heading: "Rice Items",
     menuItems: [
@@ -132,7 +133,7 @@ const menuSection = [
     ],
   },
   {
-    heading: "South Indian Curries and Gravy",
+    heading: "Curries",
     menuItems: [
       {
         url: "/images/curries/chicken-curry.png",
@@ -256,9 +257,30 @@ const menuSection = [
       },
     ],
   },
+  {
+    heading: "Snacks",
+    menuItems: [],
+  },
+  {heading:"Tiffins", menuItems:[]},
+  {heading:"Beverages", menuItems:[]}
 ];
 
 const Menu = () => {
+
+  const [activeTab, setActiveTab] = useState("Specials");
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
+  const getDisplayedSections = () => {
+    if (activeTab === "All") {
+      return menuSections;
+    } else {
+      return menuSections.filter((section) => section.heading === activeTab);
+    }
+  };
+
   const scrollRight = (id) => {
     const sect = document.getElementById(id);
     if (sect) {
@@ -274,7 +296,28 @@ const Menu = () => {
   };
   return (
     <>
-      {menuSection.map((section) => {
+       <div className="tabs">
+        <button
+          className={`tab ${activeTab === "All" ? "activeTab" : ""}`}
+          onClick={() => handleTabClick("All")}
+        >
+          All
+        </button>
+        {menuSections.map((section) => (
+          <button
+            key={section.heading}
+            className={`tab ${
+              activeTab === section.heading ? "tab activeTab" : "tab"
+            }`}
+            onClick={() => handleTabClick(section.heading)}
+          >
+            {section.heading}
+          </button>
+        ))}
+      </div>
+
+
+      {getDisplayedSections().map((section) => {
         return (
           <section key={section.heading} className="menu-section">
             <h2>{section.heading}</h2>
