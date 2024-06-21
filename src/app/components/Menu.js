@@ -6,7 +6,66 @@ import MenuItem from "./MenuItem";
 import { ChevronRight, ChevronLeft } from 'react-bootstrap-icons';
 
 const menuSections = [
-  {heading:"Specials", menuItems:[]},
+  {
+    heading: "Specials",
+    menuItems: [
+      {
+        url: "/images/specials/kerala-parotta.png",
+        title: "Kerala Parotta with Chicken Fry",
+        desc: "Flaky and layered parotta served with spicy and flavorful chicken fry, a popular dish from Kerala.",
+        price: "$15.99",
+      },
+     
+      {
+        url: "/images/specials/appam-stew.png",
+        title: "Appam with Vegetable Stew",
+        desc: "Soft and fluffy appams served with a mild and flavorful vegetable stew, a popular dish from Kerala.",
+        price: "$10.99",
+      },
+      {
+        url: "/images/specials/kori-rotti.png",
+        title: "Kori Rotti",
+        desc: "A traditional Mangalorean dish made with spicy chicken curry served with crispy rice rottis.",
+        price: "$14.99",
+      },
+      {
+        url: "/images/rice-items/hyderabadi-biryani.png", // Reused URL
+        title: "Hyderabadi Dum Biryani",
+        desc: "Aromatic and flavorful biryani made with basmati rice, marinated meat, and traditional Hyderabadi spices, cooked on dum.",
+        price: "$14.99",
+      },
+      {
+        url: "/images/curries/mutton-curry.png", // Reused URL
+        title: "Gongura Mutton",
+        desc: "A tangy and spicy mutton curry made with Gongura (sorrel leaves), a specialty from Andhra Pradesh.",
+        price: "$16.99",
+      },
+      {
+        url: "/images/rice-items/hyderabadi-biryani.png", // Reused URL
+        title: "Thalassery Biryani",
+        desc: "A unique biryani from the Malabar region, made with small-grained rice and a special blend of spices.",
+        price: "$13.99",
+      },
+      {
+        url: "/images/curries/prawn-curry.png", // Reused URL
+        title: "Kerala Prawn Curry",
+        desc: "Succulent prawns cooked in a coconut milk-based curry with traditional Kerala spices.",
+        price: "$15.99",
+      },
+      {
+        url: "/images/curries/chettinad-chicken-curry.png", // Reused URL
+        title: "Chettinad Chicken",
+        desc: "A spicy and aromatic chicken curry from the Chettinad region, made with a blend of roasted spices.",
+        price: "$13.99",
+      },
+      {
+        url: "/images/curries/mutton-curry.png", // Reused URL
+        title: "Mutton Rogan Josh",
+        desc: "A rich and aromatic mutton curry from Kashmir, made with yogurt, spices, and herbs.",
+        price: "$16.99",
+      }
+    ],
+  },
   {
     heading: "Rice Items",
     menuItems: [
