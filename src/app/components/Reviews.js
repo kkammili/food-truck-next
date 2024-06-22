@@ -40,8 +40,8 @@ export const Reviews = () => {
             </div>
             {!isSmallScreen && (
                 <>
-                    <ChevronLeft className={'scroll-button left'} size={30} onclick={scroll()}/>
-                    <ChevronRight className={'scroll-button right'} size={30} onclick={scroll()}/>
+                    <ChevronLeft className={'scroll-button left'} size={30} onClick={scroll()}/>
+                    <ChevronRight className={'scroll-button right'} size={30} onClick={scroll()}/>
                 </>
             )}        
             </div>
