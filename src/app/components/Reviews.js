@@ -1,16 +1,18 @@
+'use client'
 import * as React from 'react';
 import '../styles/_reviews.scss'
 import Image from 'next/image'
 import { ChevronRight, ChevronLeft } from 'react-bootstrap-icons';
+import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
 
 const scroll = () =>{}
 
 export const Reviews = () => {
+    const isSmallScreen = useIsSmallScreen()
   return (
     
     <section className="reviews-section">
         <div className="review-container">
-            <ChevronLeft className={'scroll-button left'} size={30} onclick={scroll()}/>
             <div className="review-content">
                 <div className="review-stars">
                     ★★★★★
@@ -36,7 +38,12 @@ export const Reviews = () => {
                     />
                 </div>
             </div>
-            <ChevronRight className={'scroll-button right'} size={30} onclick={scroll()}/>
+            {!isSmallScreen && (
+                <>
+                    <ChevronLeft className={'scroll-button left'} size={30} onclick={scroll()}/>
+                    <ChevronRight className={'scroll-button right'} size={30} onclick={scroll()}/>
+                </>
+            )}        
             </div>
     </section>
   )

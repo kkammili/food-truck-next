@@ -5,7 +5,7 @@ const useIsSmallScreen = () => {
 
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsSmallScreen(window.innerWidth < 992); // Adjust the breakpoint as needed
+            setIsSmallScreen(window.innerWidth < 768); // Adjust the breakpoint as needed
         };
 
         // Check screen size on mount

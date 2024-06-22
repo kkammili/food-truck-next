@@ -3,11 +3,13 @@
 .tabs {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 20px;
     overflow-x: auto;
     white-space: nowrap;
     padding: 0;
     scroll-behavior: smooth;
+    width:100%;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, $accent-background 50%, $primary-background 50%);
 }
 
 .tab {
@@ -47,7 +49,7 @@
 
 .menu-items {
     display: flex;
-    overflow-x: hidden;
+    overflow-x: auto;
     padding: 20px 0;
     scroll-behavior: smooth;
 }
@@ -152,3 +154,19 @@
         -webkit-overflow-scrolling: touch; /* Enables momentum scrolling */
     }
 }
+
+@media only screen and (min-width: 768px) {
+    /* CSS rules for laptop, desktops, and larger devices go here */
+    .menu-items {
+        overflow-x: hidden;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+
+    .tab {
+        padding: 15px 25px; /* Adjust padding for larger screens if needed */
+        font-size: 1.4em; /* Adjust font size for larger screens if needed */
+    }
+  }

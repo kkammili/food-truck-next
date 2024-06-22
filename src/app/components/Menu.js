@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import "../styles/_menu.scss";
 import MenuItem from "./MenuItem";
 import { ChevronRight, ChevronLeft } from 'react-bootstrap-icons';
+import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
 
 const menuSections = [
   {
@@ -318,15 +319,82 @@ const menuSections = [
   },
   {
     heading: "Snacks",
-    menuItems: [],
+    menuItems: [
+      {
+        url: "/images/snacks/samosa.png",
+        title: "Samosa",
+        desc: "Crispy and savory samosas filled with spiced potatoes and peas.",
+        price: "$3.99",
+      },
+      {
+        url: "/images/snacks/medu-vada.png",
+        title: "Medu Vada",
+        desc: "Crispy and fluffy lentil fritters served with chutney and sambar.",
+        price: "$4.99",
+      },
+      {
+        url: "/images/snacks/onion-bajji.png",
+        title: "Onion Bajji",
+        desc: "Crispy onion fritters seasoned with spices.",
+        price: "$3.49",
+      },
+      {
+        url: "/images/snacks/vegetable-pakora.png",
+        title: "Vegetable Pakora",
+        desc: "Mixed vegetable fritters seasoned with spices and served with chutney.",
+        price: "$4.49",
+      },
+      {
+        url: "/images/snacks/punugulu.png",
+        title: "Punugulu",
+        desc: "Crispy and savory fritters made from fermented dosa batter.",
+        price: "$3.99",
+      },
+      {
+        url: "/images/snacks/murukku.png",
+        title: "Murukku",
+        desc: "Crunchy and savory spiral-shaped snacks made from rice flour.",
+        price: "$2.99",
+      },
+      {
+        url: "/images/snacks/aloo-bonda.png",
+        title: "Aloo Bonda",
+        desc: "Deep-fried potato balls seasoned with spices and coated with gram flour.",
+        price: "$3.99",
+      },
+      {
+        url: "/images/snacks/chilli-bajji.png",
+        title: "Chilli Bajji",
+        desc: "Spicy green chilies battered and deep-fried to a crispy finish.",
+        price: "$3.49",
+      },
+      {
+        url: "/images/snacks/masala-vada.png",
+        title: "Masala Vada",
+        desc: "Crispy lentil fritters mixed with spices and herbs.",
+        price: "$4.49",
+      },
+      {
+        url: "/images/snacks/kara-boondi.png",
+        title: "Kara Boondi",
+        desc: "Spicy and crunchy fried gram flour balls.",
+        price: "$2.99",
+      },
+      {
+        url: "/images/snacks/pappad.png",
+        title: "Pappad",
+        desc: "Thin and crispy lentil crackers served with chutneys.",
+        price: "$1.99",
+      },
+    ],
   },
   {heading:"Tiffins", menuItems:[]},
   {heading:"Beverages", menuItems:[]}
 ];
 
 const Menu = () => {
-
   const [activeTab, setActiveTab] = useState("Specials");
+  const isSmallScreen = useIsSmallScreen();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -355,7 +423,7 @@ const Menu = () => {
   };
   return (
     <>
-       <div className="tabs">
+      <div className="tabs">
         <button
           className={`tab ${activeTab === "All" ? "activeTab" : ""}`}
           onClick={() => handleTabClick("All")}
@@ -374,7 +442,6 @@ const Menu = () => {
           </button>
         ))}
       </div>
-
 
       {getDisplayedSections().map((section) => {
         return (
@@ -397,22 +464,29 @@ const Menu = () => {
                   );
                 })}
               </div>
+              {!isSmallScreen && (
+                <>
+                  <ChevronLeft
+                    className={"scroll-button left"}
+                    size={30}
+                    onClick={() =>
+                      scrollLeft(
+                        section.heading.toLowerCase().replace(/ /g, "-")
+                      )
+                    }
+                  />
 
-              <ChevronLeft
-                className={"scroll-button left"}
-                size={30}
-                onClick={() =>
-                  scrollLeft(section.heading.toLowerCase().replace(/ /g, "-"))
-                }
-              />
-
-              <ChevronRight
-                className={"scroll-button right"}
-                size={30}
-                onClick={() =>
-                  scrollRight(section.heading.toLowerCase().replace(/ /g, "-"))
-                }
-              />
+                  <ChevronRight
+                    className={"scroll-button right"}
+                    size={30}
+                    onClick={() =>
+                      scrollRight(
+                        section.heading.toLowerCase().replace(/ /g, "-")
+                      )
+                    }
+                  />
+                </>
+              )}
             </div>
           </section>
         );
