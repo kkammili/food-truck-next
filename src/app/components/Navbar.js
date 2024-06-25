@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import '../styles/_navbar.scss';
 import Image from "next/image";
+import Link from 'next/link';
 import { Cart } from 'react-bootstrap-icons';
 import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
 
@@ -61,24 +62,26 @@ const Navbar = () => {
           </ul>
 
           {isOpen && isSmallScreen && (
-            <div
-              className="cart-icon-container expanded"
-            >
+            <Link href={"/cart"}>
+              <div className="cart-icon-container expanded">
+                <Cart size={40} />
+                {cartItems > 0 && (
+                  <span className="cart-items-count">{cartItems}</span>
+                )}
+              </div>
+            </Link>
+          )}
+        </div>
+
+        {!isSmallScreen && (
+            <Link href={"/cart"}>
+            <div className="cart-icon-container expanded">
               <Cart size={40} />
               {cartItems > 0 && (
                 <span className="cart-items-count">{cartItems}</span>
               )}
             </div>
-          )}
-        </div>
-
-        {!isSmallScreen && (
-          <div className="cart-icon-container ml-auto">
-            <Cart size={40} />
-            {cartItems > 0 && (
-              <span className="cart-items-count">{cartItems}</span>
-            )}
-          </div>
+          </Link>
         )}
       </div>
     </nav>
