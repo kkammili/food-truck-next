@@ -388,7 +388,113 @@ const menuSections = [
       },
     ],
   },
-  {heading:"Tiffins", menuItems:[]},
+  {
+    "heading": "Tiffins",
+    "menuItems": [
+      {
+        "url": "/images/tiffins/idli.png",
+        "title": "Idli",
+        "desc": "Steamed rice cakes served with coconut chutney and sambar.",
+        "price": "$6.99"
+      },
+      {
+        "url": "/images/tiffins/dosa.png",
+        "title": "Dosa",
+        "desc": "Crispy and thin fermented rice batter crepe served with chutney and sambar.",
+        "price": "$8.99"
+      },
+      {
+        "url": "/images/tiffins/masala-dosa.png",
+        "title": "Masala Dosa",
+        "desc": "Crispy dosa filled with spiced potato filling, served with chutney and sambar.",
+        "price": "$9.99"
+      },
+      {
+        "url": "/images/tiffins/uttapam.png",
+        "title": "Uttapam",
+        "desc": "Thick pancake made from fermented rice batter, topped with vegetables.",
+        "price": "$7.99"
+      },
+      {
+        "url": "/images/tiffins/vada.png",
+        "title": "Vada",
+        "desc": "Crispy and savory fried lentil donuts served with chutney and sambar.",
+        "price": "$6.99"
+      },
+      {
+        "url": "/images/tiffins/poori.png",
+        "title": "Poori",
+        "desc": "Deep-fried bread served with potato curry.",
+        "price": "$7.99"
+      },
+      {
+        "url": "/images/tiffins/medu-vada.png",
+        "title": "Medu Vada",
+        "desc": "Soft and crispy lentil donuts served with chutney and sambar.",
+        "price": "$7.49"
+      },
+      {
+        "url": "/images/tiffins/pongal.png",
+        "title": "Pongal",
+        "desc": "Comforting rice and lentil dish tempered with spices and ghee.",
+        "price": "$8.49"
+      },
+      {
+        "url": "/images/tiffins/bisibele-bath.png",
+        "title": "Bisibele Bath",
+        "desc": "Spicy rice dish cooked with lentils and vegetables.",
+        "price": "$8.99"
+      },
+      {
+        "url": "/images/tiffins/rava-dosa.png",
+        "title": "Rava Dosa",
+        "desc": "Thin and crispy semolina crepe served with chutney and sambar.",
+        "price": "$8.99"
+      },
+      {
+        "url": "/images/tiffins/rava-idli.png",
+        "title": "Rava Idli",
+        "desc": "Soft and fluffy semolina cakes served with coconut chutney and sambar.",
+        "price": "$6.99"
+      },
+      {
+        "url": "/images/tiffins/set-dosa.png",
+        "title": "Set Dosa",
+        "desc": "Soft and fluffy rice batter pancakes served in sets, accompanied by chutney and sambar.",
+        "price": "$8.49"
+      },
+      {
+        "url": "/images/tiffins/bonda.png",
+        "title": "Bonda",
+        "desc": "Spicy potato balls deep-fried in chickpea flour batter, served with chutney.",
+        "price": "$7.49"
+      },
+      {
+        "url": "/images/tiffins/semiya-upma.png",
+        "title": "Semiya Upma",
+        "desc": "Vermicelli noodles cooked with vegetables and tempered with spices.",
+        "price": "$7.49"
+      },
+      {
+        "url": "/images/tiffins/adai.png",
+        "title": "Adai",
+        "desc": "Lentil and rice pancake served with chutney.",
+        "price": "$8.49"
+      },
+      {
+        "url": "/images/tiffins/kesari.png",
+        "title": "Kesari",
+        "desc": "Sweet semolina dessert flavored with saffron and ghee.",
+        "price": "$6.49"
+      },
+      {
+        "url": "/images/tiffins/upma.png",
+        "title": "Upma",
+        "desc": "Savory semolina dish cooked with vegetables and tempered with spices.",
+        "price": "$6.99"
+      }
+    ]
+  },
   {heading:"Beverages", menuItems:[]}
 ];
 
