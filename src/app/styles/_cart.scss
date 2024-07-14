@@ -1,0 +1,24 @@
+@import 'variables';
+
+
+
+.apply {
+    background-color: $secondary-background;
+    color: $primary-background;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.mg {
+    margin: 18px;
+    position: relative;
+    bottom: 16px;
+}
+
+.apply:hover {
+    background-color: $button-hover;
+}
