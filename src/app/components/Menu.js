@@ -637,7 +637,8 @@ const Menu = () => {
                 {section.menuItems.map((menuItem) => {
                   return (
                     <MenuItem
-                      key={menuItem.title}
+                      id={menuItem.id}
+                      key={menuItem.id}
                       url={menuItem.url}
                       title={menuItem.title}
                       desc={menuItem.desc}

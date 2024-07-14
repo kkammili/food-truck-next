@@ -1,8 +1,8 @@
+// src/store/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
-import {thunk} from 'redux-thunk';
 import cartReducer from './reducers/cartReducer';
 
 // Combine reducers
@@ -19,11 +19,15 @@ const persistConfig = {
 // Persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Configure store
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: [thunk],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+      },
+    }),
 });
 
-// Persistor
 export const persistor = persistStore(store);
+

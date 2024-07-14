@@ -5,6 +5,7 @@ import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "./Provider";
 
 export const metadata = {
   title: "Bhimavaram Birayni's",
@@ -19,9 +20,13 @@ export default function RootLayout({ children }) {
       <title>Food Truck</title>
     </Head>
     <body className={inter.class}>
+      <Providers>
+
       <Navbar />
       <main>{children}</main>
       <Footer />
+      </Providers>
+
     </body>
   </html>
   );
