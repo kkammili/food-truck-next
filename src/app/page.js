@@ -17,7 +17,7 @@ export default function Home() {
       <Reviews />
       <Faq />
       <Subscribe />
-      {/* <ClearCart /> */}
+      <ClearCart />
     </>
   );
 }

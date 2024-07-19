@@ -1,11 +1,22 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../app/styles/_cart.scss'
-import React, {useState} from "react";
-import { useSelector } from 'react-redux';
+"use client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../app/styles/_cart.scss";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const Cart = () => {
+  const cartItems = useSelector((state) => state?.cart?.cart) || {};
 
-  const cartItems = useSelector((state) => state?.cart?.cart)
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className="h-100">
@@ -14,17 +25,16 @@ const Cart = () => {
           <div className="col-10">
             <div className="d-flex justify-content-between align-items-center mb-4">
               <h3 className="fw-normal mb-0">Shopping Cart</h3>
-              <div>
-                <p className="mb-0">
-                  Prev Page
-                </p>
-              </div>
+              <Link href={"/"}>
+                <div>
+                  <p className="mb-0">Prev Page</p>
+                </div>
+              </Link>
             </div>
 
-            {
-              Object.entries(cartItems).map(([key,item]) =>{
-                return (
-                  <div key={key} className="card rounded-3 mb-4">
+            {Object.entries(cartItems)?.map(([key, item]) => {
+              return (
+                <div key={key} className="card rounded-3 mb-4">
                   <div className="card-body p-4">
                     <div className="row d-flex justify-content-between align-items-center">
                       <div className="col-md-2 col-lg-2 col-xl-2">
@@ -46,17 +56,17 @@ const Cart = () => {
                         >
                           <i className="fas fa-minus"></i>
                         </button>
-    
+
                         <input
                           id="form1"
                           min="0"
                           name="quantity"
                           value={item.count}
-                          onChange={()=>{}}
+                          onChange={() => {}}
                           type="number"
                           className="form-control form-control-sm"
                         />
-    
+
                         <button
                           data-mdb-button-init
                           data-mdb-ripple-init
@@ -67,7 +77,9 @@ const Cart = () => {
                         </button>
                       </div>
                       <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h5 className="mb-0">{item.price}</h5>
+                        <h5 className="mb-0">
+                          ${item.currPrice || item.price}
+                        </h5>
                       </div>
                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                         <a href="#!" className="text-danger">
@@ -77,9 +89,8 @@ const Cart = () => {
                     </div>
                   </div>
                 </div>
-                )
-              })
-            }
+              );
+            })}
 
             <div className="card mb-4">
               <div className="card-body p-4 d-flex flex-row">
@@ -87,7 +98,7 @@ const Cart = () => {
                   <input
                     type="text"
                     id="form1"
-                    onChange={()=>{}}
+                    onChange={() => {}}
                     className="form-control form-control-lg"
                   />
                   <label className="form-label">Discount code</label>
@@ -98,10 +109,7 @@ const Cart = () => {
 
             <div className="card">
               <div className="card-body">
-                <button
-                  type="button"
-                  className="apply"
-                >
+                <button type="button" className="apply">
                   Proceed to Pay
                 </button>
               </div>

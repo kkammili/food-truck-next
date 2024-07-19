@@ -10,13 +10,13 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       const { id, ...itemDetails } = action.payload;
-      console.log(id,itemDetails, '<----- hmmm')
       if (state.cart[id]) {
-        state.cart[id].count += 1;
+        let currCount = state.cart[id].count + 1
+        state.cart[id].count = currCount;
+        state.cart[id].currPrice = '' + parseFloat(state.cart[id].price) * parseInt(state.cart[id].count)
       } else {
         state.cart[id] = { ...itemDetails, count: 1 };
       }
-      console.log(state, '<---- state after saving')
     },
     removeItem: (state, action) => {
       const { id } = action.payload;

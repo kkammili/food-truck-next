@@ -5,11 +5,13 @@ import Image from "next/image";
 import Link from 'next/link';
 import { Cart } from 'react-bootstrap-icons';
 import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
-
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const cartItems = 3
+    let totalCartItems = useSelector((state) => state?.cart?.cart) || {};
+    // change this and use another selector
+    totalCartItems = '' + Object.keys(totalCartItems)?.length
     const isSmallScreen = useIsSmallScreen();
 
   return (
@@ -65,8 +67,8 @@ const Navbar = () => {
             <Link href={"/cart"}>
               <div className="cart-icon-container expanded">
                 <Cart size={40} />
-                {cartItems > 0 && (
-                  <span className="cart-items-count">{cartItems}</span>
+                {totalCartItems > 0 && (
+                  <span className="cart-items-count">{totalCartItems}</span>
                 )}
               </div>
             </Link>
@@ -77,8 +79,8 @@ const Navbar = () => {
             <Link href={"/cart"}>
             <div className="cart-icon-container expanded">
               <Cart size={40} />
-              {cartItems > 0 && (
-                <span className="cart-items-count">{cartItems}</span>
+              {totalCartItems > 0 && (
+                <span className="cart-items-count">{totalCartItems}</span>
               )}
             </div>
           </Link>
