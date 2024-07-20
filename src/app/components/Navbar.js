@@ -63,27 +63,17 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-          {isOpen && (
-            <Link href={"/cart"}>
-              <div className="cart-icon-container expanded">
-                <Cart size={40} />
-                {totalCartItems > 0 && (
-                  <span className="cart-items-count">{totalCartItems}</span>
-                )}
-              </div>
-            </Link>
-          )}
         </div>
 
-        {!isOpen && (
-            <Link href={"/cart"}>
-            <div className="cart-icon-container expanded">
-              <Cart size={40} />
-              {totalCartItems > 0 && (
-                <span className="cart-items-count">{totalCartItems}</span>
-              )}
-            </div>
-          </Link>
+        {isSmallScreen && !isOpen && (
+        <Link href={"/cart"}>
+          <div className="cart-icon-container expanded">
+            <Cart size={40} />
+            {totalCartItems > 0 && (
+              <span className="cart-items-count">{totalCartItems}</span>
+            )}
+          </div>
+        </Link>
         )}
       </div>
     </nav>
