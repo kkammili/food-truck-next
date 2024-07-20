@@ -10,8 +10,9 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     let totalCartItems = useSelector((state) => state?.cart?.cart) || {};
-    // change this and use another selector
-    totalCartItems = '' + Object.keys(totalCartItems)?.length
+    totalCartItems = Object.values(totalCartItems).reduce((acc, curr)=>{
+      return acc + parseInt(curr.count)
+    }, 0) || 0
     const isSmallScreen = useIsSmallScreen();
 
   return (
@@ -62,8 +63,9 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
+          </div>
 
-          {isOpen && isSmallScreen && (
+          {/* {isOpen && (
             <Link href={"/cart"}>
               <div className="cart-icon-container expanded">
                 <Cart size={40} />
@@ -75,7 +77,9 @@ const Navbar = () => {
           )}
         </div>
 
-        {!isSmallScreen && (
+        */}
+
+        {/* {!isOpen && (
             <Link href={"/cart"}>
             <div className="cart-icon-container expanded">
               <Cart size={40} />
@@ -84,7 +88,7 @@ const Navbar = () => {
               )}
             </div>
           </Link>
-        )}
+        )}  */}
       </div>
     </nav>
   );
