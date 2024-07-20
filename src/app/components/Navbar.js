@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/_navbar.scss';
 import Image from "next/image";
 import Link from 'next/link';
@@ -13,7 +13,12 @@ const Navbar = () => {
     totalCartItems = Object.values(totalCartItems).reduce((acc, curr)=>{
       return acc + parseInt(curr.count)
     }, 0) || 0
+    const [isClient, setIsClient] = useState(false);
     const isSmallScreen = useIsSmallScreen();
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
@@ -63,7 +68,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            {isSmallScreen && isOpen && (
+            {isClient && isSmallScreen && isOpen && (
               <li className="nav-item mx-3">
                 <Link href={"/cart"}>
                   <div className="cart-icon-container expanded">
@@ -77,7 +82,7 @@ const Navbar = () => {
             )}
         </div>
 
-        {!isSmallScreen && !isOpen && (
+        {isClient && !isSmallScreen && !isOpen && (
         <Link href={"/cart"}>
           <div className="cart-icon-container expanded">
             <Cart size={40} />
