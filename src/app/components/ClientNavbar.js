@@ -4,6 +4,7 @@ import { Cart } from 'react-bootstrap-icons';
 import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
 import { useSelector } from "react-redux";
 import Link from 'next/link';
+import '../styles/_navbar.scss';
 
 const ClientNavbar = () => {
     const [isOpen, setIsOpen] = useState(false);
