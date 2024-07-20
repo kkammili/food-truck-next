@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import '../styles/_navbar.scss';
 import Image from "next/image";
 import Link from 'next/link';
 import ClientNavbar from './ClientNavbar';
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
@@ -20,24 +19,11 @@ const Navbar = () => {
             priority={true}
           />
         </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarContent"
-          aria-controls="navbarContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <input type="checkbox" id="navbar-toggle" className="navbar-toggle" />
+        <label htmlFor="navbar-toggle" className="navbar-toggler">
           <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className={
-            isOpen ? "show navbar-collapse" : "collapse navbar-collapse"
-          }
-          id="navbarContent"
-        >
+        </label>
+        <div className="navbar-collapse" id="navbarContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item mx-3">
               <a className="nav-link" href="#contact">
@@ -55,7 +41,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            <ClientNavbar isOpen={isOpen} />
+            <ClientNavbar isOpen={document.getElementById('navbar-toggle')?.checked} />
         </div>
 
       </div>
