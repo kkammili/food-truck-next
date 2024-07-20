@@ -63,7 +63,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            {isSmallScreen && (
+            {isSmallScreen && isOpen && (
               <li className="nav-item mx-3">
                 <Link href={"/cart"}>
                   <div className="cart-icon-container expanded">
@@ -77,7 +77,7 @@ const Navbar = () => {
             )}
         </div>
 
-        {!isSmallScreen && (
+        {!isSmallScreen && !isOpen && (
         <Link href={"/cart"}>
           <div className="cart-icon-container expanded">
             <Cart size={40} />
