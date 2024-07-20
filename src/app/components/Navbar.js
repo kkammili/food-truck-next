@@ -40,8 +40,8 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            <ClientNavbar />
         </div>
+        <ClientNavbar />
 
       </div>
     </nav>
