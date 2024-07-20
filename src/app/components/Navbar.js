@@ -63,9 +63,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-          </div>
-
-          {/* {isOpen && (
+          {isOpen && (
             <Link href={"/cart"}>
               <div className="cart-icon-container expanded">
                 <Cart size={40} />
@@ -77,9 +75,7 @@ const Navbar = () => {
           )}
         </div>
 
-        */}
-
-        {/* {!isOpen && (
+        {!isOpen && (
             <Link href={"/cart"}>
             <div className="cart-icon-container expanded">
               <Cart size={40} />
@@ -88,7 +84,7 @@ const Navbar = () => {
               )}
             </div>
           </Link>
-        )}  */}
+        )}
       </div>
     </nav>
   );
