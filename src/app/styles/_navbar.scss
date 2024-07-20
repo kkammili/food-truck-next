@@ -74,16 +74,19 @@
     .cart-icon-container {
         position: relative;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     
         svg {
           color: $button-background; // Adjust the color as needed
         }
     
         .cart-items-count {
-          position: relative;
-          right: 10px;
-          top:-10px;
-          background: $button-hover;;
+          position: absolute;
+          right: -10px;
+          top: -10px;
+          background: $button-hover;
           color: white;
           border-radius: 50%;
           padding: 2px 6px;
@@ -92,8 +95,6 @@
         }
     
         &.expanded {
-          display: flex;
-          justify-content: center;
           margin: 1rem auto; // Center inside expanded navbar
         }
     
