@@ -63,9 +63,21 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
+            {isSmallScreen && (
+              <li className="nav-item mx-3">
+                <Link href={"/cart"}>
+                  <div className="cart-icon-container expanded">
+                    <Cart size={40} />
+                    {totalCartItems > 0 && (
+                      <span className="cart-items-count">{totalCartItems}</span>
+                    )}
+                  </div>
+                </Link>
+              </li>
+            )}
         </div>
 
-        {isSmallScreen && !isOpen && (
+        {!isSmallScreen && (
         <Link href={"/cart"}>
           <div className="cart-icon-container expanded">
             <Cart size={40} />
@@ -73,6 +85,7 @@ const Navbar = () => {
               <span className="cart-items-count">{totalCartItems}</span>
             )}
           </div>
+        </Link>
         </Link>
         )}
       </div>
