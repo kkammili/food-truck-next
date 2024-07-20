@@ -1,24 +1,11 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import '../styles/_navbar.scss';
 import Image from "next/image";
 import Link from 'next/link';
-import { Cart } from 'react-bootstrap-icons';
-import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import path as needed
-import { useSelector } from "react-redux";
+import ClientNavbar from './ClientNavbar';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    let totalCartItems = useSelector((state) => state?.cart?.cart) || {};
-    totalCartItems = Object.values(totalCartItems).reduce((acc, curr)=>{
-      return acc + parseInt(curr.count)
-    }, 0) || 0
-    const [isClient, setIsClient] = useState(false);
-    const isSmallScreen = useIsSmallScreen();
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
   return (
     <nav className="navbar navbar-expand-lg custom-navbar">
@@ -68,30 +55,9 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            {isClient && isSmallScreen && isOpen && (
-              <li className="nav-item mx-3">
-                <Link href={"/cart"}>
-                  <div className="cart-icon-container expanded">
-                    <Cart size={40} />
-                    {totalCartItems > 0 && (
-                      <span className="cart-items-count">{totalCartItems}</span>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            )}
+            <ClientNavbar isOpen={isOpen} />
         </div>
 
-        {isClient && !isSmallScreen && !isOpen && (
-        <Link href={"/cart"}>
-          <div className="cart-icon-container expanded">
-            <Cart size={40} />
-            {totalCartItems > 0 && (
-              <span className="cart-items-count">{totalCartItems}</span>
-            )}
-          </div>
-        </Link>
-        )}
       </div>
     </nav>
   );
