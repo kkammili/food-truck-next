@@ -5,7 +5,21 @@ import useIsSmallScreen from '../hooks/useIsSmallScreen'; // Adjust the import p
 import { useSelector } from "react-redux";
 import Link from 'next/link';
 
-const ClientNavbar = ({ isOpen }) => {
+const ClientNavbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        const toggle = document.getElementById('navbar-toggle');
+        const handleToggleChange = () => {
+            setIsOpen(toggle.checked);
+        };
+
+        toggle.addEventListener('change', handleToggleChange);
+
+        return () => {
+            toggle.removeEventListener('change', handleToggleChange);
+        };
+    }, []);
     let totalCartItems = useSelector((state) => state?.cart?.cart) || {};
     totalCartItems = Object.values(totalCartItems).reduce((acc, curr)=>{
       return acc + parseInt(curr.count)

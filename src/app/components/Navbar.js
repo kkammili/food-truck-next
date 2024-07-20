@@ -41,7 +41,7 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
-            <ClientNavbar isOpen={document.getElementById('navbar-toggle')?.checked} />
+            <ClientNavbar />
         </div>
 
       </div>
