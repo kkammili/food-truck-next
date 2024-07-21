@@ -2,11 +2,19 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../app/styles/_cart.scss";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateItemCount } from "../store/actions/cartActions";
 import Link from "next/link";
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state?.cart?.cart) || {};
+
+  const handleCountChange = (id, count) => {
+    if (count >= 0) {
+      dispatch(updateItemCount(id, count));
+    }
+  };
 
   const [isClient, setIsClient] = useState(false);
 
@@ -52,7 +60,7 @@ const Cart = () => {
                           data-mdb-button-init
                           data-mdb-ripple-init
                           className="btn btn-link px-2"
-                          onClick={() => {}}
+                          onClick={() => handleCountChange(key, item.count - 1)}
                         >
                           <i className="fas fa-minus"></i>
                         </button>
@@ -62,7 +70,7 @@ const Cart = () => {
                           min="0"
                           name="quantity"
                           value={item.count}
-                          onChange={() => {}}
+                          onChange={(e) => handleCountChange(key, parseInt(e.target.value))}
                           type="number"
                           className="form-control form-control-sm"
                         />
@@ -71,7 +79,7 @@ const Cart = () => {
                           data-mdb-button-init
                           data-mdb-ripple-init
                           className="btn btn-link px-2"
-                          onClick={() => {}}
+                          onClick={() => handleCountChange(key, item.count + 1)}
                         >
                           <i className="fas fa-plus"></i>
                         </button>
