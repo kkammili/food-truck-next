@@ -4,7 +4,7 @@ import "../app/styles/_cart.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { updateItemCount } from "../../store/actions/cartActions";
-import { updateItemCount } from '../store/actions/cartActions';
+import { updateItemCount, removeItem } from '../store/actions/cartActions';
 
 import Link from "next/link";
 
@@ -16,6 +16,10 @@ const Cart = () => {
     if (count >= 0) {
       dispatch(updateItemCount({ id, count }));
     }
+  };
+
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem({ id }));
   };
 
   const [isClient, setIsClient] = useState(false);
@@ -92,7 +96,7 @@ const Cart = () => {
                         </h5>
                       </div>
                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" className="text-danger">
+                        <a href="#!" className="text-danger" onClick={() => handleRemoveItem(key)}>
                           <i className="fas fa-trash fa-lg"></i>
                         </a>
                       </div>
