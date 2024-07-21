@@ -3,10 +3,9 @@ import React from 'react';
 import App from 'next/app';
 import { Providers } from '../app/Provider';
 import Checkout from './checkout';
+import { useRouter } from 'next/router';
 
-class MyApp extends App {
-  render() {
-    const { Component, pageProps } = this.props;
+const MyApp=({ Component, pageProps })=> {
     const { pathname } = useRouter();
 
     return (
@@ -20,7 +19,6 @@ class MyApp extends App {
         )}
       </>
     );
-  }
 }
 
 export default MyApp;

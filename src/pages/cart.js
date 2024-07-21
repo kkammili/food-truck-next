@@ -124,7 +124,7 @@ const Cart = () => {
 
             <div className="card">
               <div className="card-body">
-                <button type="button" className="apply">
+                <button type="button" className="apply" onClick={() => window.location.href = '/checkout'}>
                   Proceed to Pay
                 </button>
               </div>
