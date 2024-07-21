@@ -27,14 +27,7 @@ const cartSlice = createSlice({
           delete state.cart[id];
         }
       }
-    },
-    updateItemCount: (state, action) => {
-      const { id, count } = action.payload;
-      if (state.cart[id]) {
-        state.cart[id].count = count;
-        state.cart[id].currPrice = '' + parseFloat(state.cart[id].price) * parseInt(state.cart[id].count);
-      }
-    },
+    }
 });
 
 export const { addItem, removeItem, updateItemCount } = cartSlice.actions;
