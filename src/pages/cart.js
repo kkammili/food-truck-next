@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../app/styles/_cart.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateItemCount } from "../store/actions/cartActions";
+// import { updateItemCount } from "../../store/actions/cartActions";
+import { updateItemCount } from '../store/reducers/cartReducer';
+
 import Link from "next/link";
 
 const Cart = () => {
