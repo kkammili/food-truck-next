@@ -2,6 +2,7 @@
 import React from 'react';
 import App from 'next/app';
 import { Providers } from '../app/Provider';
+import Checkout from './checkout';
 
 class MyApp extends App {
   render() {
