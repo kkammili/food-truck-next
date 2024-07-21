@@ -19,9 +19,6 @@ class MyApp extends App {
           </Providers>
         )}
       </>
-      <Providers>
-        <Component {...pageProps} />
-      </Providers>
     );
   }
 }
