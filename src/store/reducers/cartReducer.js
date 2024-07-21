@@ -29,7 +29,14 @@ const cartSlice = createSlice({
       }
     },
   },
+  updateItemCount: (state, action) => {
+    const { id, count } = action.payload;
+    if (state.cart[id]) {
+      state.cart[id].count = count;
+      state.cart[id].currPrice = '' + parseFloat(state.cart[id].price) * parseInt(state.cart[id].count);
+    }
+  }
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, updateItemCount } = cartSlice.actions;
 export default cartSlice.reducer;
