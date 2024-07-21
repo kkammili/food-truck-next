@@ -16,7 +16,7 @@ const cartSlice = createSlice({
         state.cart[id].currPrice = '' + parseFloat(state.cart[id].price) * parseInt(state.cart[id].count)
       } else {
         state.cart[id] = { ...itemDetails, count: 1 };
-      },
+      }
     },
     removeItem: (state, action) => {
       const { id } = action.payload;

@@ -14,7 +14,7 @@ const Cart = () => {
 
   const handleCountChange = (id, count) => {
     if (count >= 0) {
-      dispatch(updateItemCount(id, count));
+      dispatch(updateItemCount({ id, count }));
     }
   };
 
