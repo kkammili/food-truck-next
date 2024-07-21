@@ -34,7 +34,7 @@ const cartSlice = createSlice({
         state.cart[id].count = count;
         state.cart[id].currPrice = '' + parseFloat(state.cart[id].price) * parseInt(state.cart[id].count);
       }
-    }
+    },
 });
 
 export const { addItem, removeItem, updateItemCount } = cartSlice.actions;
