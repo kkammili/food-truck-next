@@ -1,5 +1,5 @@
   // src/store/actions/cartActions.js
-import { addItem, removeItem } from '../reducers/cartReducer';
+import { addItem, removeItem, updateItemCount } from '../reducers/cartReducer';
 
-export { addItem, removeItem };
+export { addItem, removeItem, updateItemCount };
   
