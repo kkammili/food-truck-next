@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateItemCount, removeItem } from '../store/actions/cartActions';
 
 import Link from "next/link";
+import { Trash } from 'react-bootstrap-icons';
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -97,7 +98,7 @@ const Cart = () => {
                       </div>
                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                         <a href="#!" className="text-danger" onClick={() => handleRemoveItem(key)}>
-                          <i className="fas fa-trash fa-lg"></i>
+                          <Trash size={24} />
                         </a>
                       </div>
                     </div>
