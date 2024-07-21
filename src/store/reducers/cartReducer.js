@@ -21,11 +21,7 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       const { id } = action.payload;
       if (state.cart[id]) {
-        if (state.cart[id].count > 1) {
-          state.cart[id].count -= 1;
-        } else {
-          delete state.cart[id];
-        }
+        delete state.cart[id];
       }
     },
     updateItemCount: (state, action) => {

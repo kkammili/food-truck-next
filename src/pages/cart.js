@@ -97,7 +97,7 @@ const Cart = () => {
                         </h5>
                       </div>
                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" className="text-danger" onClick={() => handleRemoveItem(key)}>
+                        <a href="#!" className="text-danger" onClick={() => handleRemoveItem(item.id)}>
                           <Trash size={24} />
                         </a>
                       </div>
