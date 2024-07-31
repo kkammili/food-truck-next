@@ -607,7 +607,7 @@ const Menu = () => {
     <>
       <div className="tabs">
         <button
-          className={`tab {activeTab === "All" ? "activeTab" : ""}`}
+          className={`tab ${activeTab === "All" ? "activeTab" : ""}`}
           onClick={() => handleTabClick("All")}
         >
           All
@@ -615,8 +615,8 @@ const Menu = () => {
         {menuSections.map((section) => (
           <button
             key={section.heading}
-            className={`tab {
-              activeTab === section.heading ? "tab activeTab" : "tab"
+            className={`tab ${
+              activeTab === section.heading ? "activeTab" : "tab"
             }`}
             onClick={() => handleTabClick(section.heading)}
           >
@@ -629,7 +629,7 @@ const Menu = () => {
         return (
           <section key={section.heading} className="menu-section">
             <h2>{section.heading}</h2>
-            <div className="menu-items-wrapper">
+            <div className="menu-items-wrapper" id="menu-section">
               <div
                 id={section.heading.toLowerCase().replace(/ /g, "-")}
                 className="menu-items"
