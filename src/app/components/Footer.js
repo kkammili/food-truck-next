@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="footer-top">
                 <nav className="footer-nav">
                     <ul>
-                        <li><a href="#">Bhimavaram Biryani&apos;s - Food Truck</a></li>
+                        <li><a href="#">Restaraunt Name</a></li>
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Reviews</a></li>
                         <li><a href="#">FAQ&apos;s</a></li>
@@ -53,14 +53,14 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="footer-logo">
                     <Image
-                        src={'/images/logos.png'}
-                        alt={'bvrm biryanis logo'}
+                        src={'/images/logos.jpg'}
+                        alt={'restaraunt logo'}
                         className={'footer-logo'}
                         width={150}
                         height={80}
                     />
                 </div>
-                <p>&copy; Mana Bhimavaram Biryani&apos;s</p>
+                <p>Restaraunt Name</p>
             </div>
         </div>
     </div>

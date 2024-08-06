@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 import { Providers } from "./Provider";
 
 export const metadata = {
-  title: "Bhimavaram Birayni's",
+  title: "Restaraunt Name",
   description: "Serving flaming",
 };
 

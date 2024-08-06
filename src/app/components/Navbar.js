@@ -10,11 +10,11 @@ const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <Image
-            src="/images/logos.png"
+            src="/images/logos.jpg"
             width={150}
             height={80}
             className="logo"
-            alt="Bhimavaram Biryani's"
+            alt="Restaraunt Name"
             priority={true}
           />
         </a>
