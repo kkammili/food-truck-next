@@ -4,10 +4,10 @@ import "../app/styles/_cart.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 // import { updateItemCount } from "../../store/actions/cartActions";
-import { updateItemCount, removeItem } from '../store/actions/cartActions';
+import { updateItemCount, removeItem } from "../store/actions/cartActions";
 
 import Link from "next/link";
-import { Trash } from 'react-bootstrap-icons';
+import { Trash } from "react-bootstrap-icons";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -77,7 +77,9 @@ const Cart = () => {
                           min="0"
                           name="quantity"
                           value={item.count}
-                          onChange={(e) => handleCountChange(key, parseInt(e.target.value))}
+                          onChange={(e) =>
+                            handleCountChange(key, parseInt(e.target.value))
+                          }
                           type="number"
                           className="form-control form-control-sm"
                         />
@@ -97,7 +99,11 @@ const Cart = () => {
                         </h5>
                       </div>
                       <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" className="text-danger" onClick={()=>handleRemoveItem(key)}>
+                        <a
+                          href="#!"
+                          className="text-danger"
+                          onClick={() => handleRemoveItem(key)}
+                        >
                           <Trash size={24} />
                         </a>
                       </div>
@@ -124,7 +130,11 @@ const Cart = () => {
 
             <div className="card">
               <div className="card-body">
-                <button type="button" className="apply" onClick={() => window.location.href = '/checkout'}>
+                <button
+                  type="button"
+                  className="apply"
+                  onClick={() => (window.location.href = "/checkout")}
+                >
                   Proceed to Pay
                 </button>
               </div>

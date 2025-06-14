@@ -2,18 +2,13 @@ import React from "react";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
-// import "../../src/app/styles/_payments.scss"
-// import "../styles/_payments.scss";
-import "../styles/_checkout.scss"
-
+import "../styles/_checkout.scss";
 
 export default function Payments() {
   const stripe = useStripe();
   const elements = useElements();
-
-
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -23,7 +18,7 @@ export default function Payments() {
     }
 
     const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
+      "payment_intent_client_secret",
     );
 
     if (!clientSecret) {
@@ -86,16 +81,38 @@ export default function Payments() {
   };
 
   return (
-    <form className="payment-form" id="payment-form" onSubmit={handleSubmit}>
+    <div className="payment-section">
+      <h2 className="section-header">Payment</h2>
+      <div className="stripe-element-container">
+        <PaymentElement
+          id="payment-element"
+          options={{
+            layout: "tabs",
+            fields: {
+              billingDetails: {
+                address: "never",
+              },
+            },
+          }}
+        />
+      </div>
 
-      <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button className="payment-btn" disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
+      <button
+        className="payment-btn"
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+      >
+        {isLoading && <span className="spinner"></span>}
+        Pay now
       </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+
+      {message && (
+        <div
+          className={`payment-message ${message.includes("succeeded") ? "success" : "error"}`}
+        >
+          {message}
+        </div>
+      )}
+    </div>
   );
 }
