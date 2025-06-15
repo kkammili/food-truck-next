@@ -29,17 +29,17 @@ export default function App() {
   const [orderDetails, setOrderDetails] = React.useState(null);
   const [clientSecret, setClientSecret] = React.useState("");
 
-  // React.useEffect(() => {
-  //   // Create PaymentIntent as soon as the page loads
-  //   // get items and change body
-  //   fetch("/api/create-payment-intent", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setClientSecret(data.clientSecret));
-  // }, []);
+  React.useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    // get items and change body
+    fetch("/api/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: cartItems }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, [cartItems]);
 
   const appearance = {
     theme: "stripe",
