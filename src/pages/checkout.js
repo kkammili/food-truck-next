@@ -31,15 +31,16 @@ export default function App() {
   const [isAddressValid, setIsAddressValid] = React.useState(false);
 
   React.useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    // get items and change body
-    fetch("/api/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: cartItems }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+    if (cartItems.length > 0) {
+      // Create PaymentIntent as soon as the page loads
+      fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: cartItems }),
+      })
+        .then((res) => res.json())
+        .then((data) => setClientSecret(data.clientSecret));
+    }
   }, [cartItems]);
 
   const appearance = {
