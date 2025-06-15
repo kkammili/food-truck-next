@@ -5,10 +5,12 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import "../styles/_checkout.scss";
+import { toast } from "react-toastify";
 
 export default function Payments({
   onPaymentSuccess,
-  isAddressComplete, isAddressValid,
+  isAddressComplete,
+  isAddressValid,
   shippingAddress,
 }) {
   const stripe = useStripe();
@@ -69,7 +71,7 @@ export default function Payments({
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: "http://localhost:3000/success",
+          return_url: "http://localhost:3000/",
           payment_method_data: {
             billing_details: {
               name: shippingAddress.name,
@@ -89,11 +91,14 @@ export default function Payments({
 
       if (error) {
         setMessage(error.message || "An unexpected error occurred.");
+        toast.error(message);
       } else if (onPaymentSuccess) {
         onPaymentSuccess(shippingAddress);
+        toast.success("Payment has been successfully processed");
       }
     } catch (err) {
       setMessage("Payment processing failed");
+      toast.error(message);
     } finally {
       setIsLoading(false);
     }
@@ -124,7 +129,14 @@ export default function Payments({
 
       <button
         className="payment-btn"
-        disabled={isLoading || !stripe || !elements || !isAddressComplete || !isPaymentValid || !isAddressValid}
+        disabled={
+          isLoading ||
+          !stripe ||
+          !elements ||
+          !isAddressComplete ||
+          !isPaymentValid ||
+          !isAddressValid
+        }
         onClick={handleSubmit}
         id="submit"
       >
