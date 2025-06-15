@@ -13,6 +13,11 @@ const calculateOrderAmount = (items) => {
 export default async function handler(req, res) {
   const { items } = req.body;
 
+  if (!items || !Array.isArray(items)) {
+    console.error("Invalid items array:", items);
+    return res.status(400).send({ error: "Invalid items array" });
+  }
+
   try {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
