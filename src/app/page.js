@@ -1,22 +1,24 @@
 "use client";
-
+import { useEffect } from "react";
 import { Features } from "./components/Features";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearPaymentStatus } from "../store/reducers/paymentStatusSlice";
+import { clearPaymentStatus } from "../store/actions/paymentStatusActions";
 import Menu from "./components/Menu";
 import MenuDescription from "./components/MenuDescription";
 import { Reviews } from "./components/Reviews";
 import Faq from "./components/Faq";
 import Subscribe from "./components/Subscribe";
-import ClearCart from "./components/ClearCart";
+// import ClearCart from "./components/ClearCart";
+import Hero from "./components/Hero";
 
 export default function Home() {
   const dispatch = useDispatch();
   const paymentStatus = useSelector((state) => state.paymentStatus.status);
+  console.log(paymentStatus, "<---- check payment status");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (paymentStatus) {
       if (paymentStatus === "success") {
         toast.success("Payment has been successfully processed");

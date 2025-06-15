@@ -5,7 +5,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { useDispatch } from "react-redux";
-import { setPaymentStatus } from "../../store/reducers/paymentStatusSlice";
+import { setPaymentStatus } from "../../store/actions/paymentStatusActions";
 import { toast } from "react-toastify";
 
 export default function Payments({
@@ -19,6 +19,7 @@ export default function Payments({
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPaymentValid, setIsPaymentValid] = React.useState(false);
+  const [message, setMessage] = React.useState("");
 
   React.useEffect(() => {
     if (!stripe) {
