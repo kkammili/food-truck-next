@@ -10,8 +10,6 @@ import "../app/styles/_checkout.scss";
 import { clearCart } from "../store/actions/cartActions";
 import { clearShippingAddress } from "../store/actions/checkoutActions";
 
-import paymentIntent from "./api/create-payment-intent";
-
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
 // This is your test publishable API key.
@@ -26,7 +24,6 @@ export default function App() {
     (state) => state.checkout.checkout,
   );
   let cartItems = useSelector((state) => state.cart.cart) || [];
-  const [orderDetails, setOrderDetails] = React.useState(null);
   const [clientSecret, setClientSecret] = React.useState("");
   const [isAddressValid, setIsAddressValid] = React.useState(false);
 
@@ -84,15 +81,6 @@ export default function App() {
             shippingAddress={shippingAddress}
             isAddressValid={isAddressValid}
           />
-
-          {orderDetails && (
-            <div className="order-confirmation">
-              <h2>Order Confirmation</h2>
-              <p>Order ID: {orderDetails.id}</p>
-              <p>Shipping to: {orderDetails.shippingAddress.name}</p>
-              <p>Address: {orderDetails.shippingAddress.address.line1}</p>
-            </div>
-          )}
         </Elements>
       )}
     </div>

@@ -17,24 +17,27 @@ const AddressForm = ({ setIsAddressValid }) => {
   };
 
   return (
-    <div>
-      <AddressElement
-        options={{
-          mode: "shipping",
-          fields: {
-            phone: "always",
-          },
-          validation: {
-            phone: {
-              required: "always",
+    <div className="shipping-section">
+      <h2 className="section-header">Shipping</h2>
+      <div className="stripe-element-container">
+        <AddressElement
+          options={{
+            mode: "shipping",
+            fields: {
+              phone: "always",
             },
-          },
-          display: {
-            name: "split",
-          },
-        }}
-        onChange={handleAddressChange}
-      />
+            validation: {
+              phone: {
+                required: "always",
+              },
+            },
+            display: {
+              name: "split",
+            },
+          }}
+          onChange={handleAddressChange}
+        />
+      </div>
     </div>
   );
 };

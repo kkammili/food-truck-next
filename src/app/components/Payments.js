@@ -83,18 +83,13 @@ export default function Payments({
             },
           },
         },
-        redirect: "if_required", // Important: Prevent automatic redirect
       });
 
       if (error) {
         const errorMessage = error.message || "An unexpected error occurred.";
         setMessage(errorMessage);
-        localStorage.setItem("paymentStatus", "failure");
-        router.push("/");
       } else if (paymentIntent && paymentIntent.status === "succeeded") {
         if (onPaymentSuccess) onPaymentSuccess(shippingAddress);
-        localStorage.setItem("paymentStatus", "success");
-        router.push("/");
       } else {
         // Handle other statuses (requires_action, processing, etc.)
         setMessage("Payment requires additional action");
@@ -104,7 +99,6 @@ export default function Payments({
     } catch (err) {
       setMessage("Payment processing failed");
       setPaymentStatus("failure");
-      router.push("/?payment_status=failure");
     } finally {
       setIsLoading(false);
     }
