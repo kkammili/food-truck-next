@@ -15,6 +15,7 @@ export default function Payments({
   const elements = useElements();
   const [message, setMessage] = React.useState(null);
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isPaymentValid, setIsPaymentValid] = React.useState(false);
 
   React.useEffect(() => {
     if (!stripe) {
@@ -46,6 +47,10 @@ export default function Payments({
       }
     });
   }, [stripe]);
+
+  const handlePaymentElementChange = (event) => {
+    setIsPaymentValid(event.complete);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,12 +116,13 @@ export default function Payments({
               },
             },
           }}
+          onChange={handlePaymentElementChange}
         />
       </div>
 
       <button
         className="payment-btn"
-        disabled={isLoading || !stripe || !elements || !isAddressComplete}
+        disabled={isLoading || !stripe || !elements || !isAddressComplete || !isPaymentValid}
         onClick={handleSubmit}
         id="submit"
       >
