@@ -25,7 +25,7 @@ export default function App() {
   const { shippingAddress, isAddressComplete } = useSelector(
     (state) => state.checkout.checkout,
   );
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items) || [];
   const [orderDetails, setOrderDetails] = React.useState(null);
   const [clientSecret, setClientSecret] = React.useState("");
   const [isAddressValid, setIsAddressValid] = React.useState(false);
