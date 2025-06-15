@@ -6,7 +6,7 @@ const calculateOrderAmount = (items) => {
   // Calculate the order total on the server to prevent
   // people from directly manipulating the amount on the client
   return items.reduce((total, item) => {
-    return total + item.price * item.quantity;
+    return total + parseFloat(item.price) * item.count;
   }, 0);
 };
 
@@ -20,8 +20,9 @@ export default async function handler(req, res) {
 
   try {
     // Create a PaymentIntent with the order amount and currency
+    const orderAmount = calculateOrderAmount(items);
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: calculateOrderAmount(items),
+      amount: orderAmount,
       currency: "usd",
       // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
       automatic_payment_methods: {
@@ -36,5 +37,4 @@ export default async function handler(req, res) {
     console.error("Error creating payment intent:", error);
     res.status(500).send({ error: "Internal Server Error" });
   }
-
-};
+}
