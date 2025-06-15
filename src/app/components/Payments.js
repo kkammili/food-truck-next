@@ -89,12 +89,12 @@ export default function Payments({
       if (error) {
         const errorMessage = error.message || "An unexpected error occurred.";
         setMessage(errorMessage);
-        setPaymentStatus("failure");
-        router.push("/?payment_status=failure");
+        localStorage.setItem("paymentStatus", "failure");
+        router.push("/");
       } else if (paymentIntent && paymentIntent.status === "succeeded") {
         if (onPaymentSuccess) onPaymentSuccess(shippingAddress);
-        setPaymentStatus("success");
-        router.push("/?payment_status=success");
+        localStorage.setItem("paymentStatus", "success");
+        router.push("/");
       } else {
         // Handle other statuses (requires_action, processing, etc.)
         setMessage("Payment requires additional action");

@@ -20,28 +20,10 @@ export default function Home() {
   const [paymentStatus, setPaymentStatus] = React.useState(null);
 
   useEffect(() => {
-    // Check all possible status indicators
-    const stripeStatus = searchParams.get("redirect_status");
-    const paymentStatusParam = searchParams.get("payment_status");
-    const paymentIntent = searchParams.get("payment_intent");
-
-    // Determine actual status
-    let status = null;
-    if (stripeStatus) {
-      status = stripeStatus === "succeeded" ? "success" : "failure";
-    } else if (paymentStatusParam) {
-      status = paymentStatusParam;
-    } else if (paymentIntent) {
-      // Payment intent exists but no status - assume success
-      status = "success";
-    }
-
+    const status = localStorage.getItem("paymentStatus");
     if (status) {
       setPaymentStatus(status);
-
-      // Clean the URL parameters
-      const cleanUrl = window.location.origin + window.location.pathname;
-      window.history.replaceState(null, "", cleanUrl);
+      localStorage.removeItem("paymentStatus");
     }
   }, []);
 
