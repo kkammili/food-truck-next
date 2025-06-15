@@ -4,7 +4,8 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import "../styles/_checkout.scss";
+import { useDispatch } from "react-redux";
+import { setPaymentStatus } from "../../store/reducers/paymentStatusSlice";
 import { toast } from "react-toastify";
 
 export default function Payments({
@@ -15,7 +16,7 @@ export default function Payments({
 }) {
   const stripe = useStripe();
   const elements = useElements();
-  const [message, setMessage] = React.useState(null);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPaymentValid, setIsPaymentValid] = React.useState(false);
 
@@ -94,12 +95,12 @@ export default function Payments({
         toast.error(message);
       } else if (onPaymentSuccess) {
         onPaymentSuccess(shippingAddress);
-        localStorage.setItem("paymentStatus", "success");
+        dispatch(setPaymentStatus("success"));
         window.location.href = "http://localhost:3000/";
       }
     } catch (err) {
       setMessage("Payment processing failed");
-      localStorage.setItem("paymentStatus", "failure");
+      dispatch(setPaymentStatus("failure"));
       window.location.href = "http://localhost:3000/";
     } finally {
       setIsLoading(false);

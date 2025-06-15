@@ -1,7 +1,8 @@
 import { Features } from "./components/Features";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Hero from "./components/Hero";
+import { useSelector, useDispatch } from "react-redux";
+import { clearPaymentStatus } from "../store/reducers/paymentStatusSlice";
 import Menu from "./components/Menu";
 import MenuDescription from "./components/MenuDescription";
 import { Reviews } from "./components/Reviews";
@@ -10,17 +11,19 @@ import Subscribe from "./components/Subscribe";
 import ClearCart from "./components/ClearCart";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  const paymentStatus = useSelector((state) => state.paymentStatus.status);
+
   React.useEffect(() => {
-    const paymentStatus = localStorage.getItem("paymentStatus");
     if (paymentStatus) {
       if (paymentStatus === "success") {
         toast.success("Payment has been successfully processed");
       } else if (paymentStatus === "failure") {
         toast.error("Payment processing failed");
       }
-      localStorage.removeItem("paymentStatus");
+      dispatch(clearPaymentStatus());
     }
-  }, []);
+  }, [paymentStatus, dispatch]);
   return (
     <>
       <Hero />
