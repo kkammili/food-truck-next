@@ -1,4 +1,6 @@
 import { Features } from "./components/Features";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Hero from "./components/Hero";
 import Menu from "./components/Menu";
 import MenuDescription from "./components/MenuDescription";
@@ -17,6 +19,19 @@ export default function Home() {
       <Reviews />
       <Faq />
       <Subscribe />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition="Bounce"
+      />
     </>
   );
 }

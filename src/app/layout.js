@@ -6,8 +6,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 import { Providers } from "./Provider";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export const metadata = {
   title: "Restaraunt Name",
@@ -26,19 +24,6 @@ export default function RootLayout({ children }) {
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={true}
-            closeOnClick={false}
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="dark"
-            transition="Bounce"
-          />
         </Providers>
       </body>
     </html>
