@@ -5,8 +5,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { useDispatch } from "react-redux";
-import { setPaymentStatus } from "../../store/reducers/paymentStatusSlice";
-import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function Payments({
   onPaymentSuccess,
@@ -16,10 +15,11 @@ export default function Payments({
 }) {
   const stripe = useStripe();
   const elements = useElements();
-  const dispatch = useDispatch();
+  const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPaymentValid, setIsPaymentValid] = React.useState(false);
   const [message, setMessage] = React.useState("");
+  const [paymentStatus, setPaymentStatus] = React.useState(null);
 
   React.useEffect(() => {
     if (!stripe) {
@@ -73,40 +73,41 @@ export default function Payments({
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
+          // Make sure this matches your home page URL
           return_url: "http://localhost:3000/",
           payment_method_data: {
             billing_details: {
-              name: shippingAddress.name,
               address: {
-                line1: shippingAddress.address.line1,
-                line2: shippingAddress.address.line2 || "",
-                city: shippingAddress.address.city,
-                state: shippingAddress.address.state,
-                postal_code: shippingAddress.address.postal_code,
-                country: shippingAddress.address.country,
+                country: "US", // Add the country code here
               },
-              phone: shippingAddress.phone,
             },
           },
         },
+        redirect: "if_required", // Important: Prevent automatic redirect
       });
 
       if (error) {
-        setMessage(error.message || "An unexpected error occurred.");
-        toast.error(message);
-      } else if (onPaymentSuccess) {
-        onPaymentSuccess(shippingAddress);
-        dispatch(setPaymentStatus("success"));
-        window.location.href = "http://localhost:3000/";
+        const errorMessage = error.message || "An unexpected error occurred.";
+        setMessage(errorMessage);
+        setPaymentStatus("failure");
+        router.push("/?payment_status=failure");
+      } else if (paymentIntent && paymentIntent.status === "succeeded") {
+        if (onPaymentSuccess) onPaymentSuccess(shippingAddress);
+        setPaymentStatus("success");
+        router.push("/?payment_status=success");
+      } else {
+        // Handle other statuses (requires_action, processing, etc.)
+        setMessage("Payment requires additional action");
+        setPaymentStatus("processing");
       }
+      // Remove the else block - Stripe will handle redirects
     } catch (err) {
       setMessage("Payment processing failed");
-      dispatch(setPaymentStatus("failure"));
-      window.location.href = "http://localhost:3000/";
+      setPaymentStatus("failure");
+      router.push("/?payment_status=failure");
     } finally {
       setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const paymentElementOptions = {
@@ -123,7 +124,9 @@ export default function Payments({
             layout: "tabs",
             fields: {
               billingDetails: {
-                address: "never",
+                address: {
+                  country: "never",
+                },
               },
             },
           }}
