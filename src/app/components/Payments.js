@@ -8,7 +8,7 @@ import "../styles/_checkout.scss";
 
 export default function Payments({
   onPaymentSuccess,
-  isAddressComplete,
+  isAddressComplete, isAddressValid,
   shippingAddress,
 }) {
   const stripe = useStripe();
@@ -122,7 +122,7 @@ export default function Payments({
 
       <button
         className="payment-btn"
-        disabled={isLoading || !stripe || !elements || !isAddressComplete || !isPaymentValid}
+        disabled={isLoading || !stripe || !elements || !isAddressComplete || !isPaymentValid || !isAddressValid}
         onClick={handleSubmit}
         id="submit"
       >
