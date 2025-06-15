@@ -60,8 +60,8 @@ export default function Payments({
       return;
     }
     // Validate address
-    if (!isAddressComplete || !shippingAddress) {
-      setMessage("Please complete shipping address");
+    if (!isAddressComplete || !shippingAddress || !isAddressValid) {
+      setMessage("Please complete and validate the shipping address");
       return;
     }
     setIsLoading(true);
@@ -70,17 +70,19 @@ export default function Payments({
         elements,
         confirmParams: {
           return_url: "http://localhost:3000/success",
-          shipping: {
-            name: shippingAddress.name,
-            address: {
-              line1: shippingAddress.address.line1,
-              line2: shippingAddress.address.line2 || "",
-              city: shippingAddress.address.city,
-              state: shippingAddress.address.state,
-              postal_code: shippingAddress.address.postal_code,
-              country: shippingAddress.address.country,
+          payment_method_data: {
+            billing_details: {
+              name: shippingAddress.name,
+              address: {
+                line1: shippingAddress.address.line1,
+                line2: shippingAddress.address.line2 || "",
+                city: shippingAddress.address.city,
+                state: shippingAddress.address.state,
+                postal_code: shippingAddress.address.postal_code,
+                country: shippingAddress.address.country,
+              },
+              phone: shippingAddress.phone,
             },
-            phone: shippingAddress.phone,
           },
         },
       });
