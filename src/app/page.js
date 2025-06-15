@@ -4,7 +4,7 @@ import { Features } from "./components/Features";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearPaymentStatus } from "../store/actions/paymentStatusActions";
+import { clearPaymentStatus } from "../store/reducers/paymentStatusSlice";
 import Menu from "./components/Menu";
 import MenuDescription from "./components/MenuDescription";
 import { Reviews } from "./components/Reviews";

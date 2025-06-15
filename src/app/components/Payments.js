@@ -5,7 +5,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import { useDispatch } from "react-redux";
-import { setPaymentStatus } from "../../store/actions/paymentStatusActions";
+import { setPaymentStatus } from "../../store/reducers/paymentStatusSlice";
 import { toast } from "react-toastify";
 
 export default function Payments({
