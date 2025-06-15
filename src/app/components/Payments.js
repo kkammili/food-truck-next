@@ -94,11 +94,13 @@ export default function Payments({
         toast.error(message);
       } else if (onPaymentSuccess) {
         onPaymentSuccess(shippingAddress);
-        toast.success("Payment has been successfully processed");
+        localStorage.setItem("paymentStatus", "success");
+        window.location.href = "http://localhost:3000/";
       }
     } catch (err) {
       setMessage("Payment processing failed");
-      toast.error(message);
+      localStorage.setItem("paymentStatus", "failure");
+      window.location.href = "http://localhost:3000/";
     } finally {
       setIsLoading(false);
     }

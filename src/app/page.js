@@ -10,7 +10,17 @@ import Subscribe from "./components/Subscribe";
 import ClearCart from "./components/ClearCart";
 
 export default function Home() {
-  return (
+  React.useEffect(() => {
+    const paymentStatus = localStorage.getItem("paymentStatus");
+    if (paymentStatus) {
+      if (paymentStatus === "success") {
+        toast.success("Payment has been successfully processed");
+      } else if (paymentStatus === "failure") {
+        toast.error("Payment processing failed");
+      }
+      localStorage.removeItem("paymentStatus");
+    }
+  }, []);
     <>
       <Hero />
       <Features />
