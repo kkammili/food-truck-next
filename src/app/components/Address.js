@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 // import { setShippingAddress } from "../../store/reducers/checkoutSlice";
 import { setShippingAddress } from "../../store/actions/checkoutActions";
 
-const AddressForm = () => {
+const AddressForm = ({ setIsAddressValid }) => {
   const dispatch = useDispatch();
-  const [isAddressValid, setIsAddressValid] = React.useState(false);
 
   const handleAddressChange = (event) => {
     if (event.complete) {

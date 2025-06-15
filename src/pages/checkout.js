@@ -28,6 +28,7 @@ export default function App() {
   const cartItems = useSelector((state) => state.cart.items);
   const [orderDetails, setOrderDetails] = React.useState(null);
   const [clientSecret, setClientSecret] = React.useState("");
+  const [isAddressValid, setIsAddressValid] = React.useState(false);
 
   React.useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -74,11 +75,12 @@ export default function App() {
     <div className="payment-container">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <Address />
+          <Address setIsAddressValid={setIsAddressValid} />
           <Payments
             onPaymentSuccess={handlePaymentSuccess}
             isAddressComplete={isAddressComplete}
             shippingAddress={shippingAddress}
+            isAddressValid={isAddressValid}
           />
 
           {orderDetails && (
