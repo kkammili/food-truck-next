@@ -36,33 +36,6 @@ const AddressForm = () => {
         }}
         onChange={handleAddressChange}
       />
-    </div>
-    <div className="shipping-section">
-      <h2 className="section-header">Shipping</h2>
-      <div className="stripe-element-container">
-        <AddressElement
-          options={{
-            mode: "shipping",
-            fields: {
-              phone: "always",
-            },
-            validation: {
-              phone: {
-                required: "always",
-              },
-            },
-            display: {
-              name: "split",
-            },
-          }}
-          onChange={(event) => {
-            if (event.complete) {
-              dispatch(setShippingAddress(event.value));
-            }
-          }}
-        />
-      </div>
-    </div>
   );
 };
 
