@@ -36,7 +36,6 @@ const AddressForm = () => {
         }}
         onChange={handleAddressChange}
       />
-      />
     </div>
   );
 };
