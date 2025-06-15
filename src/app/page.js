@@ -21,6 +21,7 @@ export default function Home() {
       localStorage.removeItem("paymentStatus");
     }
   }, []);
+  return (
     <>
       <Hero />
       <Features />
