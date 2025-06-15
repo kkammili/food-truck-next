@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import { combineReducers } from "redux";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 import cartReducer from "./reducers/cartReducer";
+import checkoutReducer from "./reducers/checkoutReducer";
 
 // Create a no-op storage for server-side
 const createNoopStorage = () => {
@@ -28,13 +29,14 @@ const storage =
 // Combine reducers
 const rootReducer = combineReducers({
   cart: cartReducer,
+  checkout: checkoutReducer,
 });
 
 // Persist configuration
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"], // Only persist cart state
+  whitelist: ["cart", "checkout"], // Only persist cart state
 };
 
 // Persisted reducer

@@ -25,12 +25,13 @@ export default function App() {
   const { shippingAddress, isAddressComplete } = useSelector(
     (state) => state.checkout.checkout,
   );
-  const cartItems = useSelector((state) => state.cart.items) || [];
+  let cartItems = useSelector((state) => state.cart.cart) || [];
   const [orderDetails, setOrderDetails] = React.useState(null);
   const [clientSecret, setClientSecret] = React.useState("");
   const [isAddressValid, setIsAddressValid] = React.useState(false);
 
   React.useEffect(() => {
+    cartItems = Object.values(cartItems);
     if (cartItems.length > 0) {
       // Create PaymentIntent as soon as the page loads
       fetch("/api/create-payment-intent", {
