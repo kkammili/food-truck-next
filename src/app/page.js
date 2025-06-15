@@ -1,3 +1,5 @@
+"use client";
+
 import { Features } from "./components/Features";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
