@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { addItem } from '../../store/reducers/cartReducer';
 
 
@@ -15,6 +16,7 @@ const MenuItem = ({url, title, desc, price, id}) => {
       price
     }
     dispatch(addItem(newItem));
+    toast.success(`${title} has been successfully added to the cart!`);
   };
 
   return (
