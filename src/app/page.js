@@ -9,7 +9,8 @@ import MenuDescription from "./components/MenuDescription";
 import { Reviews } from "./components/Reviews";
 import Faq from "./components/Faq";
 import Subscribe from "./components/Subscribe";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../store/reducers/cartReducer";
 // import ClearCart from "./components/ClearCart";
 import Hero from "./components/Hero";
 import { useSearchParams } from "next/navigation";
@@ -48,6 +49,7 @@ export default function Home() {
   useEffect(() => {
     if (paymentStatus === "success") {
       toast.success("Payment has been successfully processed");
+      dispatch(clearCart());
     } else if (paymentStatus === "failure") {
       toast.error("Payment processing failed");
     }
