@@ -1,15 +1,20 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import '../styles/_hero.scss';
 import Image from 'next/image';
 
 const Hero = () => {
-  return (
+  const router = useRouter();
+
+  const handleOrderClick = () => {
+    router.push('/checkout');
+  };
     <section className="hero">
     <div className="hero-text">
         <h1>Delicious South Indian Tiffins and Biryani</h1>
         <p>Experience the authentic flavors of South India with our wide range of Tiffins, Biryani, and more.</p>
         <div className="hero-buttons">
-            <a href="#" className="order-button">Order</a>
+            <a onClick={handleOrderClick} className="order-button">Order</a>
             <a href="#explore-tabs" className="explore-button">Explore</a>
         </div>
     </div>
