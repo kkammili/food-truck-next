@@ -11,7 +11,12 @@ const calculateOrderAmount = (items) => {
 };
 
 export default async function handler(req, res) {
-  console.log("STRIPE SK:", process.env.STRIPE_SECRET_KEY)
+  console.log("🟡 Incoming request to /api/create-payment-intent");
+  console.log("▶️ Request Method:", req.method);
+  console.log("▶️ Stripe Secret Key loaded:", !!process.env.STRIPE_SECRET_KEY);
+  console.log("▶️ Stripe Public Key loaded:", !!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  console.log("▶️ Request Body:", JSON.stringify(req.body));
+
   const { items } = req.body;
 
   if (!items || !Array.isArray(items)) {
@@ -22,6 +27,7 @@ export default async function handler(req, res) {
   try {
     // Create a PaymentIntent with the order amount and currency
     const orderAmount = calculateOrderAmount(items) * 100;
+    console.log("💰 Calculated Order Amount (cents):", orderAmount);
     const paymentIntent = await stripe.paymentIntents.create({
       amount: orderAmount,
       currency: "usd",
@@ -30,6 +36,8 @@ export default async function handler(req, res) {
         enabled: true,
       },
     });
+
+    console.log("PaymentIntent created:", paymentIntent.id)
 
     res.send({
       clientSecret: paymentIntent.client_secret,

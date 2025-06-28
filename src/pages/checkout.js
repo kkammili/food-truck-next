@@ -81,6 +81,7 @@ export default function App() {
             isAddressComplete={isAddressComplete}
             shippingAddress={shippingAddress}
             isAddressValid={isAddressValid}
+            clientSecret={clientSecret}
           />
         </Elements>
       )}

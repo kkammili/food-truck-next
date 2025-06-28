@@ -12,6 +12,7 @@ export default function Payments({
   isAddressComplete,
   isAddressValid,
   shippingAddress,
+  clientSecret
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -26,12 +27,10 @@ export default function Payments({
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret",
-    );
-
     if (!clientSecret) {
       return;
+    }else{
+      console.log("Client secret", clientSecret)
     }
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
@@ -74,7 +73,7 @@ export default function Payments({
         elements,
         confirmParams: {
           // Make sure this matches your home page URL
-          return_url: "http://localhost:3000/",
+          return_url: "/",
           payment_method_data: {
             billing_details: {
               address: {
