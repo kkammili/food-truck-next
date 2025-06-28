@@ -605,7 +605,7 @@ const Menu = () => {
   };
   return (
     <>
-      <div className="tabs">
+      <div id="explore-tabs" className="tabs">
         <button
           className={`tab ${activeTab === "All" ? "activeTab" : ""}`}
           onClick={() => handleTabClick("All")}

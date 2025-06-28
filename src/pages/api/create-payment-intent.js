@@ -11,6 +11,7 @@ const calculateOrderAmount = (items) => {
 };
 
 export default async function handler(req, res) {
+  console.log("STRIPE SK:", process.env.STRIPE_SECRET_KEY)
   const { items } = req.body;
 
   if (!items || !Array.isArray(items)) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import '../styles/_hero.scss';
 import Image from 'next/image';
 
@@ -7,7 +7,7 @@ const Hero = () => {
   const router = useRouter();
 
   const handleOrderClick = () => {
-    router.push('/checkout');
+    router.push('/cart');
   };
 
   return (

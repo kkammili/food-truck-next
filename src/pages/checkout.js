@@ -26,8 +26,9 @@ export default function App() {
   let cartItems = useSelector((state) => state.cart.cart) || [];
   const [clientSecret, setClientSecret] = React.useState("");
   const [isAddressValid, setIsAddressValid] = React.useState(false);
-
+ 
   React.useEffect(() => {
+    console.log('STRIPE PK :', process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
     cartItems = Object.values(cartItems);
     if (cartItems.length > 0) {
       // Create PaymentIntent as soon as the page loads
