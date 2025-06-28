@@ -73,7 +73,11 @@ export default function Payments({
         elements,
         confirmParams: {
           // Make sure this matches your home page URL
+<<<<<<< HEAD
           return_url: `${window.location.origin}/?redirect_status=succeeded`,
+=======
+          return_url: `${window.location.origin}/?redirect_status=succeeded`
+>>>>>>> b138e2f529b5b9635697cc0a17f5f9e46613a0d5
           payment_method_data: {
             billing_details: {
               address: {
