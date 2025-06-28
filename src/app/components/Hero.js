@@ -10,7 +10,7 @@ const Hero = () => {
         <p>Experience the authentic flavors of South India with our wide range of Tiffins, Biryani, and more.</p>
         <div className="hero-buttons">
             <a href="#" className="order-button">Order</a>
-            <a href="#rice-items" className="explore-button">Explore</a>
+            <a href="#explore-tabs" className="explore-button">Explore</a>
         </div>
     </div>
     <div className="hero-image">
