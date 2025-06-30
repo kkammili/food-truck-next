@@ -4,8 +4,6 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { useDispatch } from "react-redux";
-import { useRouter } from "next/navigation";
 
 export default function Payments({
   onPaymentSuccess,
@@ -16,11 +14,9 @@ export default function Payments({
 }) {
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
   const [isLoading, setIsLoading] = React.useState(false);
   const [isPaymentValid, setIsPaymentValid] = React.useState(false);
   const [message, setMessage] = React.useState("");
-  const [paymentStatus, setPaymentStatus] = React.useState(null);
 
   React.useEffect(() => {
     if (!stripe) {
@@ -32,23 +28,6 @@ export default function Payments({
     }else{
       console.log("Client secret", clientSecret)
     }
-
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent.status) {
-        case "succeeded":
-          setMessage("Payment succeeded!");
-          break;
-        case "processing":
-          setMessage("Your payment is processing.");
-          break;
-        case "requires_payment_method":
-          setMessage("Your payment was not successful, please try again.");
-          break;
-        default:
-          setMessage("Something went wrong.");
-          break;
-      }
-    });
   }, [stripe]);
 
   const handlePaymentElementChange = (event) => {
@@ -92,12 +71,10 @@ export default function Payments({
       } else {
         // Handle other statuses (requires_action, processing, etc.)
         setMessage("Payment requires additional action");
-        setPaymentStatus("processing");
       }
       // Remove the else block - Stripe will handle redirects
     } catch (err) {
       setMessage("Payment processing failed");
-      setPaymentStatus("failure");
     } finally {
       setIsLoading(false);
     }
